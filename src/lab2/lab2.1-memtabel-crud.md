@@ -4,7 +4,7 @@
 -`src/memtable/memtable.cpp`
 - `include/memtable/memtable.h` (Optional)
 
-同样的，我们先看看代码的头文件东一，从而了解我们的`MemTable`的整体实现思路:
+同样的，我们先看看代码的头文件东西，从而了解我们的`MemTable`的整体实现思路:
 ```cpp
 class MemTable {
     // ...
