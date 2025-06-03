@@ -26,7 +26,7 @@ private:
                                   std::shared_ptr<BlockCache> block_cache);
 ```
 
-这个函数不是本`Lab`要求实现的函数, 但可以先进行简单的介绍便于认知整体架构。当`MemTable`中的数据量达到阈值时, 会调用这个函数将最古老的一个`SST`进行持久化, 形成一个`Level 0`的`SST`, 因此你可以理解为, `Skiplist`是和`Level 0 SST`的数据来源。
+这个函数不是本`Lab`要求实现的函数, 但可以先进行简单的介绍便于认知整体架构。当`MemTable`中的数据量达到阈值时, 会调用这个函数将最古老的一个`SST`进行持久化, 形成一个`Level 0`的`SST`, 因此你可以理解为, `Skiplist`是`Level 0 SST`的数据来源。
 
 # 2 put 的实现
 你首先要实现的是`put`系列的函数:
