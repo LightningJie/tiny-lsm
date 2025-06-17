@@ -34,7 +34,7 @@ public std::enable_shared_from_this<Block>
 当我们从`Skiplist`拿到数据构建一个`SST`时, `SST`需要逐个构建`Block`, 这个`Block`在构建时步骤如下:
 1. 逐个将编码的键值对(也就是`Entry`)写入`data`数组, 同时将每个`Entry`的偏移量记录在内存中的`offsets`数组中。
 2. 当这个`Block`容量达到阈值时, `Block`构建完成, 你需要将`offsets`数组写入到`Block`的末尾。
-3. 还需要再`Block`末尾写入一个`Entry Num`值, 用于标识这个`Block`中键值对的数量, 从而在解码时获取`Offset`的其实位置(因为每个`Entry Offset`大小是固定的整型值)
+3. 还需要再`Block`末尾写入一个`Entry Num`值, 用于标识这个`Block`中键值对的数量, 从而在解码时获取`Offset`的真实位置(因为每个`Entry Offset`大小是固定的整型值)
 4. 当前`Block`构建完成, `SST`开始构建下一个`Block`。
 
 > 这里之所以将先将键值对持久化到`data`数组, 而元信息暂存于内存的`offsets`数组, 是因为`Data`是在数据部分之后的的`Offset`部分的偏移需要再键值对完全写入`Data`部分后才能确定
